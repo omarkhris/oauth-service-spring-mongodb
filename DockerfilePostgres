@@ -1,0 +1,13 @@
+# Use the official PostgreSQL base image
+FROM postgres:14
+
+# Set the environment variables
+ENV POSTGRES_USER db
+ENV POSTGRES_PASSWORD 123456
+ENV POSTGRES_DB testdb
+
+## Copy the SQL scripts to the container
+COPY init.sql /.
+
+# Expose the PostgreSQL port
+EXPOSE 5432
